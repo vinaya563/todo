@@ -1,38 +1,141 @@
-.App {
+body {
+  background-color: black;
+  ;
+  color: white
+}
+
+h1 {
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo-wrapper {
+
+  padding: 2%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  max-height: 80%;
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-inp {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid gray;;
+
+
+
+}
+.todo-input{
+  padding-right: 25px;;
+  display:flex;
+  align-items: flex-start;
+  margin-right: 25px;;
+  flex-direction: column;
+
+}
+.todo-input label{
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size:25px;
+  ;
+}
+.todo-input input{
+  padding:10px;
+width:250px;
+font-size: 15px;
+
+}
+.todo-input input:focus{
+  border:3px solid green;
+  outline:none;
+}
+.primaryBtn{
+  background-color: rgb(0,230,122);
   color: white;
+border-radius:0px;;
+margin-top:20px;
+padding:10px;
+width:60px;
+cursor: pointer;
+align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.primaryBtn:hover{
+  background-color: rgb(4,196,204);
 }
+.btn-area{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+}
+.secondary{
+  background-color: gray;
+    color: white;
+    border-radius: 0px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+      margin-left:20px;
+    width: 60px;
+    cursor: pointer;
+    width:fit-content
+}
+.todo-list{
+  display: flex;;
+  flex-direction: column;
+
+
+}
+.btn-area{
+  margin-bottom: 15px;;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.todo-list-item{
+  background-color: #414040;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:25px;
+  padding-bottom: 10px;;
+  padding-top: 10px;
+  margin-right: 200px;
+  margin-left:200px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 5px rgb(43, 42, 42);
+
+}
+.todo-list-item h3{
+  color:rgb(0,230,122);
+  font-size:20px;
+font-weight: bold;
+margin: 0;}
+.todo-list-item p {
+  color: rgb(0, 230, 122);
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.icon{
+font-size: 35px;
+cursor: pointer;
+
+margin-left:20px
+}
+.checkicon {
+  font-size: 35px;
+  cursor: pointer;
+
+  margin-left: 20px
 }
