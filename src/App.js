@@ -87,8 +87,7 @@ let updatedComplete=[...allCompletedTodos];
         </div>
       </div>
       <div className="btn-area">
-        <button className="secondary">Todo</button>
-        <button className="secondary">Completed</button>
+        <h1>To-do  </h1>
       </div>
       <div className="todo-list" >
         {allTodos.map((item, index) => {
