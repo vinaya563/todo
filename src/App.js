@@ -95,10 +95,11 @@ function App() {
       <div className="btn-area">
         <h1>To-do</h1>
       </div>
+      <div className="container">
       <div className="todo-list">
         {allTodos.map((item, index) => (
-          <div
-            className="todo-list-item"
+          
+          <div  className="todo-list-item"
             key={index}
             draggable
             onDragStart={handleDragStart(index)}
@@ -115,10 +116,10 @@ function App() {
           </div>
         ))}
       </div>
-      <div className="todo-list">
+      <div className="todo-list2">
         <h1>Completed</h1>
         {allCompletedTodos.map((item, index) => (
-          
+       
           <div className="todo-list-item" key={index}
             draggable
             onDragStart={handleDragStart(index)}
@@ -131,8 +132,11 @@ function App() {
           </div>
         ))}
       </div>
+      </div>
     </div>
+    
   );
 }
+
 
 export default App;

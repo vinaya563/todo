@@ -89,12 +89,19 @@ align-items: center;
     cursor: pointer;
     width:fit-content
 }
-.todo-list{
-  display: flex;;
-  flex-direction: column;
-
-
+.container {
+  display: flex;
+ flex-direction: column;
 }
+
+.todo-list2,.todo-list {
+ 
+  
+margin-right: 200px;
+  margin-left: 200px;
+}
+
+
 .btn-area{
   margin-bottom: 15px;;
   align-items: center;
@@ -106,12 +113,11 @@ align-items: center;
   background-color: #414040;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+ justify-content: space-between;
   padding:25px;
   padding-bottom: 10px;;
   padding-top: 10px;
-  margin-right: 200px;
-  margin-left:200px;
+ 
   margin-bottom: 10px;
   box-shadow: 0px 3px 5px rgb(43, 42, 42);
 
