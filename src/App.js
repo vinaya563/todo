@@ -4,21 +4,13 @@ import { MdOutlineDelete } from "react-icons/md";
 import { GoThumbsup } from "react-icons/go";
 
 function App() {
-  const url = "https://jsonplaceholder.typicode.com/todos";
   const [allTodos, setAllTodos] = useState(() => JSON.parse(localStorage.getItem('todolist')) || []);
   const [newTitle, setNewTitle] = useState("");
   const [newDesc, setNewDesc] = useState("");
   const [allCompletedTodos, setAllCompletedTodos] = useState(() => JSON.parse(localStorage.getItem('completedTodolist')) || []);
 
   const fetchInfo = () => {
-    return fetch(url)
-      .then((res) => res.json())
-      .then((d) => {
-        const incompleteTodos = d.filter(todo => !todo.completed);
-        const completedTodos = d.filter(todo => todo.completed);
-        setAllTodos(incompleteTodos);
-        setAllCompletedTodos(completedTodos);
-      });
+    // Fetching from API removed
   };
 
   useEffect(() => {
@@ -37,7 +29,7 @@ function App() {
     setNewDesc("");
   };
 
-  const handleDeleteTodo = (index, id) => {
+  const handleDeleteTodo = (index) => {
     const reducedTodo = [...allTodos];
     reducedTodo.splice(index, 1);
     localStorage.setItem('todolist', JSON.stringify(reducedTodo));
@@ -96,47 +88,43 @@ function App() {
         <h1>To-do</h1>
       </div>
       <div className="container">
-      <div className="todo-list">
-        {allTodos.map((item, index) => (
-          
-          <div  className="todo-list-item"
-            key={index}
-            draggable
-            onDragStart={handleDragStart(index)}
-            onDragOver={handleDragOver(index)}
-            onDrop={handleDrop(index)}
-          >
-            <div>
-              <h3>{item.title}</h3>
+        <div className="todo-list">
+          {allTodos.map((item, index) => (
+            <div className="todo-list-item"
+              key={index}
+              draggable
+              onDragStart={handleDragStart(index)}
+              onDragOver={handleDragOver(index)}
+              onDrop={handleDrop(index)}
+            >
+              <div>
+                <h3>{item.title}</h3>
+              </div>
+              <div>
+                <MdOutlineDelete className='icon' onClick={() => handleDeleteTodo(index)} title="Delete" />
+                <GoThumbsup className='checkicon' onClick={() => handleCompleteTodo(index)} title="Complete" />
+              </div>
             </div>
-            <div>
-              <MdOutlineDelete className='icon' onClick={() => handleDeleteTodo(index)} title="Delete" />
-              <GoThumbsup className='checkicon' onClick={() => handleCompleteTodo(index)} title="Complete" />
+          ))}
+        </div>
+        <div className="todo-list2">
+          <h1>Completed</h1>
+          {allCompletedTodos.map((item, index) => (
+            <div className="todo-list-item" key={index}
+              draggable
+              onDragStart={handleDragStart(index)}
+              onDragOver={handleDragOver(index)}
+              onDrop={handleDrop(index)}>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="todo-list2">
-        <h1>Completed</h1>
-        {allCompletedTodos.map((item, index) => (
-       
-          <div className="todo-list-item" key={index}
-            draggable
-            onDragStart={handleDragStart(index)}
-            onDragOver={handleDragOver(index)}
-            onDrop={handleDrop(index)}>
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     </div>
-    
   );
 }
-
 
 export default App;
